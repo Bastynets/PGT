@@ -272,6 +272,10 @@ def iso_bar(wsp_point, min_s=-0.1, max_s=0.11, step_s=0.011, color = 'b'):
         iso_bar_0_h = [WSP(P = wsp_point[1].P, s = i).h for i in iso_bar_0_s]
     plt.plot(iso_bar_0_s,iso_bar_0_h,color)
 
+
+st.write("# Задание 2")
+
+
 p_0 = 12.5
 T_0 = T0_max
 d = 1 #m
