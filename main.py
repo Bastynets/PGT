@@ -520,7 +520,7 @@ def plot_hs_stage_t(x_lim,y_lim):
     plt.plot([point_1.s,point_1.s],[point_1w.h, point_1.h],'ro-')
     iso_bar(point_2t,-0.02,0.02,0.001,'y')
     iso_bar(point_1w,-0.005,0.005,0.001,'c')
-plot_hs_stage_t([2,8],[0,10000])
+plot_hs_stage_t([5,8],[2000,5000])
 plt.title("h - s диаграмма")
 plt.xlabel("s, кДж/(кг*С)")
 plt.ylabel("h, кДж/кг")
