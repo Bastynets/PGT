@@ -295,8 +295,8 @@ T_0 = T0_max
 d = 1 #m
 n = 60 #Гц
 G_0 = 170.2137 #кг/с
-H_0r = 110
-H_0s = 90
+#H_0r = 110
+#H_0s = 90
 H_0 = 110
 rho = 0.05
 alpha_1 = 14 #град
@@ -309,8 +309,8 @@ l_1 = 0.015
 def callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs):
     u = M.pi * d *n
     point_0 = WSP(P = p_0, T = T_0)
-    #H_0s = H_0*(1-rho)
-    #H_0r = H_0*rho
+    H_0s = H_0*(1-rho)
+    H_0r = H_0*rho
     h_1t = point_0.h - H_0s
     point_1t = WSP(h = h_1t, s = point_0.s)
     c_1t = (2000*H_0s)**0.5
@@ -389,11 +389,11 @@ a1.append(a[0])
 a2.append(a[1])
 
 
-itog=pd.DataFrame({
- "etta_ol2" : a1,
- "alpha_2": a2,
-})
-itog
+#itog=pd.DataFrame({
+ #"etta_ol2" : a1,
+ #"alpha_2": a2,
+#})
+#itog
 
 
 H_0 = [i for i in list(range(90,110))]
