@@ -343,41 +343,6 @@ a2.append(a[1])
 
 
 
-H_0 = [i for i in list(range(90,110,1))]
-alpha1 = []
-eta = []
-ucf = []
-for i in H_0:
-    ucf_1 = M.pi*d*n/(2000*i)**0.5
-    ucf.append(ucf_1)
-
-    eta_ol, alpha = callculate_optimum(d, p_0, T_0, n, G_0, i, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs)
-    eta.append(eta_ol)
-    alpha1.append(alpha)
-
-plt.plot(ucf,eta)
-ucf_eta = plt.figure()
-plt.plot(ucf, eta)
-plt.title("Зависимость ucf от eta ")
-plt.xlabel("ucf")
-plt.ylabel("eta")
-plt.grid()
-st.pyplot(ucf_eta)
-st.subheader("Зависимость параметров от H_0")
-f = pd.DataFrame({
-    "h_0" : list(range(90,110,1)),
-    "eta_ol" : (eta),
-    "alpha" : (alpha1),
-    "U_cf" : (ucf)})
-f
-
-
-
-
-
-
-
-
 H_0 = 91 #при этом значении кпд максимальный
 u = M.pi*d*n
 point_0 = WSP(P = p_0, T = T_0)
