@@ -337,12 +337,13 @@ def callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, 
     etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
     return etta_ol2, alpha_2
 
+
+
+
 a1, a2 = [] , []
-a=  callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs)
+a = callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs)
 a1.append(a[0])
 a2.append(a[1])
-
-
 
 
 H_0 = [i for i in list(range(90,110,1))]
@@ -360,18 +361,12 @@ for i in H_0:
 plt.plot(ucf,eta)
 ucf_eta = plt.figure()
 plt.plot(ucf, eta)
-plt.title("Зависимость ucf от eta ")
-plt.xlabel("ucf")
-plt.ylabel("eta")
+plt.title("Зависимость u/cf от etta ")
+plt.xlabel("u/cf")
+plt.ylabel("etta")
 plt.grid()
 st.pyplot(ucf_eta)
-st.subheader("Зависимость параметров от H_0")
-f = pd.DataFrame({
-    "h_0" : list(range(90,110,1)),
-    "eta_ol" : (eta),
-    "alpha" : (alpha1),
-    "U_cf" : (ucf)})
-f
+
 
 H_0 = 91 #при этом значении кпд максимальный
 u = M.pi*d*n
