@@ -288,54 +288,6 @@ l_1 = 0.015
 
 
 
-def callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs):
-    u = M.pi*d*n
-    point_0 = WSP(P = p_0, T = T_0)
-    H_0s = H_0*(1-rho)
-    H_0r = H_0*rho
-    h_1t = point_0.h - H_0s
-    point_1t = WSP(h = h_1t, s = point_0.s)
-    c_1t = (2000*H_0s)**0.5
-    M_1t = c_1t/point_1t.w
-    mu_1 = 0.982 - 0.005*(b_1/l_1)
-    F_1 = G_0*point_1t.v/mu_1/c_1t
-    el_1 = F_1/M.pi/d/M.sin(M.radians(alpha_1))
-    e_opt=5*el_1**0.5
-    if e_opt > 0.85:
-        e_opt = 0.85
-    l_1 = el_1/e_opt
-    fi_1 = 0.98 - 0.008*(b_1/l_1)
-    c_1 = c_1t*fi_1
-    alpha_1 = M.degrees(M.asin(mu_1/fi_1*M.sin(M.radians(alpha_1))))
-    w_1 = (c_1**2+u**2-2*c_1*u*M.cos(M.radians(alpha_1)))**0.5
-    betta_1 = M.degrees(M.atan(M.sin(M.radians(alpha_1))/(M.cos(M.radians(alpha_1))-u/c_1)))
-    Delta_Hs = c_1t**2/2*(1-fi_1**2)
-    h_1 = h_1t + Delta_Hs*1e-3
-    point_1 = WSP(P = point_1t.P, h = h_1)
-    h_2t = h_1 - H_0r
-    point_2t = WSP(h = h_2t, s = point_1.s)
-    w_2t = (2*H_0r*1e3+w_1**2)**0.5
-    l_2 = l_1 + Delta
-    mu_2 = 0.965-0.01*(b_2/l_2)
-    M_2t = w_2t/point_2t.w
-    F_2 = G_0*point_2t.v/mu_2/w_2t
-    betta_2 = M.degrees(M.asin(F_2/(e_opt*M.pi*d*l_2)))
-    point_1w = WSP(h = point_1.h+w_1**2/2*1e-3, s = point_1.s)
-    psi = 0.96 - 0.014*(b_2/l_2)
-    w_2 = psi*w_2t
-    c_2 = (w_2**2+u**2-2*u*w_2*M.cos(M.radians(betta_2)))**0.5
-    alpha_2 = M.degrees(M.atan(M.sin(M.radians(betta_2))/(M.cos(M.radians(betta_2))-u/w_2)))
-    if alpha_2<0:
-        alpha_2 = 180 + alpha_2
-    Delta_Hr = w_2t**2/2*(1-psi**2)
-    h_2 = h_2t+Delta_Hr*1e-3
-    point_2 = WSP(P = point_2t.P, h = h_2)
-    Delta_Hvs = c_2**2/2
-    E_0 = H_0 - kappa_vs*Delta_Hvs
-    etta_ol1 = (E_0*1e3 - Delta_Hs-Delta_Hr-(1-kappa_vs)*Delta_Hvs)/(E_0*1e3)
-    etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
-    return etta_ol2, alpha_2
-
 
 def callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs):
     u = M.pi*d*n
@@ -392,6 +344,34 @@ a2.append(a[1])
 
 
 
+
+H_0 = [i for i in list(range(90,110,1))]
+alpha1 = []
+eta = []
+ucf = []
+for i in H_0:
+    ucf_1 = M.pi*d*n/(2000*i)**0.5
+    ucf.append(ucf_1)
+
+    eta_ol, alpha = callculate_optimum(d, p_0, T_0, n, G_0, i, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs)
+    eta.append(eta_ol)
+    alpha1.append(alpha)
+
+plt.plot(ucf,eta)
+ucf_eta = plt.figure()
+plt.plot(ucf, eta)
+plt.title("Зависимость ucf от eta ")
+plt.xlabel("ucf")
+plt.ylabel("eta")
+plt.grid()
+st.pyplot(ucf_eta)
+st.subheader("Зависимость параметров от H_0")
+f = pd.DataFrame({
+    "h_0" : list(range(90,110,1)),
+    "eta_ol" : (eta),
+    "alpha" : (alpha1),
+    "U_cf" : (ucf)})
+f
 
 H_0 = 91 #при этом значении кпд максимальный
 u = M.pi*d*n
