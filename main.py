@@ -395,7 +395,10 @@ itog=pd.DataFrame({
 })
 itog
 
+
 H_0 = [i for i in list(range(90,110))]
+
+usf_etta = plt.figure()
 
 eta = []
 ucf = []
@@ -406,7 +409,11 @@ for i in H_0:
     print(i,eta_ol, alpha,ucf_1)
     eta.append(eta_ol)
 plt.plot(ucf,eta)
-plt.show()
+plt.title("usf")
+plt.xlabel("u/cf")
+plt.ylabel("КПД")
+plt.grid()
+st.pyplot(usf_etta)
 
 H_0 = 91 #при этом значении кпд максимальный
 u = M.pi*d*n
