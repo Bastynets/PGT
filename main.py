@@ -695,7 +695,7 @@ st.write("""Внутреняя мощность ступени
 
 
 
-st.write(point_1)
+st.write(point_1.P)
 
 
 
