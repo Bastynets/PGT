@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import math as M
+from sympy import *
 
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
 st.write("Github: " + "https://github.com/Bastynets/PGT")
@@ -712,7 +713,7 @@ drs = 1 #Введите диаметр регулирующей ступени, 
 P0 = point_0_d.P #Введите давление полного торможения перед нерегулируемой ступенью P0, МПа
 h0 = point_0_d.h #Введите энтальпия полного торможения перед первой нерегулируемой ступенью h0, кДж/кг
 G0 = G_0 #Введите расход пара в первую нерегулируемую ступень, кг/с
-etaoi= eta_oi #Введите внутренний КПД ЦВД
+etaoi = eta_oi #Введите внутренний КПД ЦВД
 Z = 8 #Введите количество ступеней ЦВД
 Pz = point_1.P #Введите давление за ЦВД, МПа
 
@@ -740,7 +741,7 @@ st.write("""# """)
 st.write(" *Решение:* ")
 
 D1 = drs - deltaD
-sat_steam = IAPWS97(P=P0, h=h0)
+sat_steam = WSP(P=P0, h=h0)
 s_0 = sat_steam.s
 t_0 = sat_steam.T
 
@@ -751,7 +752,7 @@ while error > 0.5:
     X = (fi * M.cos(M.radians(alfa))) / (2 * M.sqrt(1 - rho))
     H01 = 12.3 * (D1 / X) ** 2 * (n / 50) ** 2
     h2t = h0 - H01
-    steam2t = IAPWS97(h=h2t, s=s_0)
+    steam2t = WSP(h=h2t, s=s_0)
     v2t = steam2t.v
     l11 = G0 * v2t * X / (M.pi ** 2 * D1 ** 2 * n * M.sqrt(1 - rho) * M.sin(M.radians(alfa)) * mu1)
     tetta_old = tetta
@@ -763,12 +764,12 @@ while error > 0.5:
 
 l21 = l11 + delta
 d_s = D1 - l21
-steam_tz = IAPWS97(P=Pz, s=s_0)
+steam_tz = WSP(P=Pz, s=s_0)
 h_zt = steam_tz.h
 H0 = h0 - h_zt
 Hi = H0 * etaoi
 h_z = h0 - Hi
-steam_z = IAPWS97(P=Pz, h=h_z)
+steam_z = WSP(P=Pz, h=h_z)
 v_2z = steam_z.v
 x = Symbol('x')
 с = solve(x ** 2 + x * d_s - (l21 * (d_s + l21) * v_2z / v2t))
