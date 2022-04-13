@@ -4,3 +4,4 @@ streamlit==1.6.0
 iapws==1.5.2
 matplotlib==3.5.1
 click==8.0.0
+sympy == 1.7.1
