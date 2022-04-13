@@ -730,7 +730,7 @@ tetta = 20
 st.write("""# """)
 st.write(" *Дано:* ")
 st.write(""" P0 = """ + str('{:.3}'.format(float(P0))) + """ МПа""")
-st.write(""" h0 = """ + str('{:.1}'.format(float(h0))) + """ кДж/кг""")
+st.write(""" h0 = """ + str('{:.2f}'.format(float(h0))) + """ кДж/кг""")
 st.write(""" dрс = """ + str(drs) + """ м """)
 st.write(""" Z = """ + str(Z) + """ шт """)
 st.write(""" G0 = """ + str('{:.2f}'.format(float(G0))) + """ кг/с """)
