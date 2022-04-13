@@ -6,6 +6,7 @@ import pandas as pd
 import math as M
 from sympy import *
 
+
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
 st.write("Github: " + "https://github.com/Bastynets/PGT")
 st.write("# Задание 1")
@@ -728,14 +729,14 @@ tetta = 20
 
 st.write("""# """)
 st.write(" *Дано:* ")
-st.write(""" P0 = """ + str(P0) + """ МПа""")
-st.write(""" h0 = """ + str(h0) + """ кДж/кг""")
+st.write(""" P0 = """ + str('{:.2}'.format(float(P0[-1]))) + """ МПа""")
+st.write(""" h0 = """ + str('{:.2}'.format(float(h0[-1]))) + """ кДж/кг""")
 st.write(""" dрс = """ + str(drs) + """ м """)
 st.write(""" Z = """ + str(Z) + """ шт """)
-st.write(""" G0 = """ + str(G0) + """ кг/с """)
+st.write(""" G0 = """ + str('{:.2}'.format(float(G0[-1]))) + """ кг/с """)
 st.write(""" n = """ + str(n) + """ Гц """)
-st.write(""" eta_oi = """ + str(etaoi) + """ """)
-st.write(""" Pz = """ + str(Pz) + """ МПа """)
+st.write(""" eta_oi = """ + str('{:.2}'.format(float(etaoi[-1]))) + """ """)
+st.write(""" Pz = """ + str('{:.2}'.format(float(Pz[-1]))) + """ МПа """)
 
 st.write("""# """)
 st.write(" *Решение:* ")
