@@ -505,6 +505,9 @@ Delta_Hs = c_1t**2/2*(1-fi_1**2)
 st.write(" ")
 h_1 = h_1t + Delta_Hs*1e-3
 point_1 = WSP(P = point_1t.P, h = h_1)
+st.write("")
+st.write(point_1.P)
+st.write("")
 h_2t = h_1 - H_0r
 point_2t = WSP(h = h_2t, s = point_1.s)
 w_2t = (2*H_0r*1e3+w_1**2)**0.5
