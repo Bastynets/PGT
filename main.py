@@ -587,7 +587,8 @@ E_0 = H_0 - kappa_vs*Delta_Hvs
 etta_ol1 = (E_0*1e3 - Delta_Hs-Delta_Hr-(1-kappa_vs)*Delta_Hvs)/(E_0*1e3)
 etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
 
-
+h_vs = h_2 + Delta_Hvs * 1e-3
+point_vs = IAPWS97(P=point_2t.P, h=h_vs)
 
 
 
