@@ -91,9 +91,7 @@ def Calculate_eta_G0_Gk(N_e, p_0, T_0, p_pp, T_pp, p_k, T_pv):
     s_1 = point_1.s
     T_1 = point_1.T
     v_1 = point_1.v
-    p_1 = point_1.P
 
-    st.session_state.p_1 = f"{p_1:.2f}"
 
 
     p_pp_ = p_pp - 0.03*p_pp
@@ -210,9 +208,7 @@ fighs = plt.figure()
 
 point_0 = WSP(P=p0*1e-6, T=T0_max)
 p_0_d = p0 - delta_p_0
-st.session_state.p_0_d = f"{p_0_d/(10**6):.2f}"
 point_0_d = WSP(P=p_0_d*1e-6, h=point_0.h)
-st.session_state.h_0_d = f"{point_0_d.h:.2f}"
 p_1t = ppp + delta_p_pp
 point_1t = WSP(P=p_1t*10**(-6), s=point_0.s)
 H_01 = point_0.h - point_1t.h
@@ -220,9 +216,7 @@ kpd_oi = 0.85
 H_i_cvd = H_01 * kpd_oi
 h_1 = point_0.h - H_i_cvd
 point_1 = WSP(P=p_1t*1e-6, h=h_1)
-st.write("")
-st.write(point_1.P)
-st.write("")
+p_1 = point_1.P
 point_pp = WSP(P=ppp*1e-6, T=Tpp)
 p_pp_d = ppp - delta_p_pp
 point_pp_d = WSP(P=p_pp_d*1e-6, h=point_pp.h)
@@ -505,9 +499,6 @@ Delta_Hs = c_1t**2/2*(1-fi_1**2)
 st.write(" ")
 h_1 = h_1t + Delta_Hs*1e-3
 point_1 = WSP(P = point_1t.P, h = h_1)
-st.write("")
-st.write(point_1.P)
-st.write("")
 h_2t = h_1 - H_0r
 point_2t = WSP(h = h_2t, s = point_1.s)
 w_2t = (2*H_0r*1e3+w_1**2)**0.5
