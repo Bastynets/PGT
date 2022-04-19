@@ -861,7 +861,7 @@ Hi_ = [float(x) for x in Hi_]
 Hdi_ = [float(x) for x in Hdi_]
 
 ## Таблица
-table = pd.DataFrame({"№ ступени": (N_),
+table = pd.DataFrame({"№ ст-ни": (N_),
                       "di, м": (di_),
                       "li, м": (li_),
                       "θi ": (tettai_),
