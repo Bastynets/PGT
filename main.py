@@ -91,6 +91,10 @@ def Calculate_eta_G0_Gk(N_e, p_0, T_0, p_pp, T_pp, p_k, T_pv):
     s_1 = point_1.s
     T_1 = point_1.T
     v_1 = point_1.v
+    p_1 = point_1.P
+    st.session_state.p_1 = f"{p_1:.2f}"
+
+
     p_pp_ = p_pp - 0.03*p_pp
     point_pp_ = WSP(P=p_pp_*10**(-6),h = h_pp)
     s_pp_ = point_pp_.s
@@ -203,7 +207,9 @@ fighs = plt.figure()
 
 point_0 = WSP(P=p0*1e-6, T=T0_max)
 p_0_d = p0 - delta_p_0
+st.session_state.p_0_d = f"{p_0_d/(10**6):.2f}"
 point_0_d = WSP(P=p_0_d*1e-6, h=point_0.h)
+st.session_state.h_0_d = f"{point_0_d.h:.2f}"
 p_1t = ppp + delta_p_pp
 point_1t = WSP(P=p_1t*10**(-6), s=point_0.s)
 H_01 = point_0.h - point_1t.h
@@ -600,22 +606,9 @@ def plot_hs_stage_t(x_lim, y_lim):
     plot_hs_nozzle_t(x_lim, y_lim)
     plt.plot([point_0.s, point_1.s], [point_0.h, point_1.h], 'bo-')
     plt.plot([point_1.s, point_2t.s], [point_1.h, point_2t.h], 'ro-')
-    # plt.plot([point_1.s, point_1.s], [point_1w.h, point_1.h], 'ro-')
     iso_bar(point_2t, -0.02, 0.02, 0.001, 'y')
     plt.plot([point_2.s, point_vs.s], [point_2.h, point_vs.h], 'ro-')
     plt.plot([point_1.s, point_2.s], [point_1.h, point_2.h], 'bo-')
-    # iso_bar(point_2t, -0.02, 0.02, 0.001, 'y')
-    # iso_bar(point_1w, -0.005, 0.005, 0.001, 'c')
-
-# def plot_hs_stage_t(x_lim,y_lim):
-#     plot_hs_nozzle_t(x_lim,y_lim)
-#     plt.plot([point_0.s,point_1.s],[point_0.h,point_1.h],'bo-')
-#     plt.plot([point_1.s,point_2t.s],[point_1.h,point_2t.h], 'ro-')
-#     plt.plot([point_1.s,point_1.s],[point_1w.h, point_1.h],'ro-')
-#     iso_bar(point_2t,-0.02,0.02,0.001,'y')
-#     iso_bar(point_1w,-0.005,0.005,0.001,'c')
-#
-
 
 plot_hs_stage_t([6.61, 6.66],[3360,3500])
 plt.title("h - s диаграмма")
@@ -623,12 +616,6 @@ plt.xlabel("s, кДж/(кг*С)")
 plt.ylabel("h, кДж/кг")
 plt.grid()
 st.pyplot(hsstage)
-
-
-
-
-
-
 
 
 st.write(" ")
