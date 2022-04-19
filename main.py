@@ -264,17 +264,6 @@ for x, y, ind in zip([point_1t.s, point_0_d.s], [point_1t.h, point_0_d.h], ['{1�
 st.pyplot(fighs)
 
 
-
-def iso_bar(wsp_point, min_s=-0.1, max_s=0.11, step_s=0.011, color = 'b'):
-    if not isinstance(wsp_point,list):
-        iso_bar_0_s = np.arange(wsp_point.s+min_s,wsp_point.s+max_s,step_s).tolist()
-        iso_bar_0_h = [WSP(P = wsp_point.P, s = i).h for i in iso_bar_0_s]
-    else:
-        iso_bar_0_s = np.arange(wsp_point[0].s+min_s,wsp_point[1].s+max_s,step_s).tolist()
-        iso_bar_0_h = [WSP(P = wsp_point[1].P, s = i).h for i in iso_bar_0_s]
-    plt.plot(iso_bar_0_s,iso_bar_0_h,color)
-
-
 st.write("# Задание 2")
 
 
@@ -293,6 +282,15 @@ kappa_vs = 0
 l_1 = 0.015
 
 
+
+def iso_bar(wsp_point, min_s=-0.1, max_s=0.11, step_s=0.011, color = 'b'):
+    if not isinstance(wsp_point,list):
+        iso_bar_0_s = np.arange(wsp_point.s+min_s,wsp_point.s+max_s,step_s).tolist()
+        iso_bar_0_h = [WSP(P = wsp_point.P, s = i).h for i in iso_bar_0_s]
+    else:
+        iso_bar_0_s = np.arange(wsp_point[0].s+min_s,wsp_point[1].s+max_s,step_s).tolist()
+        iso_bar_0_h = [WSP(P = wsp_point[1].P, s = i).h for i in iso_bar_0_s]
+    plt.plot(iso_bar_0_s,iso_bar_0_h,color)
 
 
 def callculate_optimum(d, p_0, T_0, n, G_0, H_0, rho, l_1, alpha_1, b_1, Delta, b_2, kappa_vs):
@@ -509,13 +507,13 @@ point_1w = WSP(h = point_1.h+w_1**2/2*1e-3, s = point_1.s)
 
 
 hsstage = plt.figure()
-def plot_hs_stage_t(x_lim,y_lim):
-    plot_hs_nozzle_t(x_lim,y_lim)
-    plt.plot([point_0.s,point_1.s],[point_0.h,point_1.h],'bo-')
-    plt.plot([point_1.s,point_2t.s],[point_1.h,point_2t.h], 'ro-')
-    plt.plot([point_1.s,point_1.s],[point_1w.h, point_1.h],'ro-')
-    iso_bar(point_2t,-0.02,0.02,0.001,'y')
-    iso_bar(point_1w,-0.005,0.005,0.001,'c')
+def plot_hs_stage_t(x_lim, y_lim):
+    plot_hs_nozzle_t(x_lim, y_lim)
+    plt.plot([point_0.s, point_1.s], [point_0.h, point_1.h], 'bo-')
+    plt.plot([point_1.s, point_2t.s], [point_1.h, point_2t.h], 'ro-')
+    iso_bar(point_2t, -0.02, 0.02, 0.001, 'y')
+    plt.plot([point_2.s, point_vs.s], [point_2.h, point_vs.h], 'ro-')
+    plt.plot([point_1.s, point_2.s], [point_1.h, point_2.h], 'bo-')
 plot_hs_stage_t([6.61, 6.66],[3360,3500])
 plt.title("h - s диаграмма")
 plt.xlabel("s, кДж/(кг*С)")
