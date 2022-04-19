@@ -220,6 +220,9 @@ kpd_oi = 0.85
 H_i_cvd = H_01 * kpd_oi
 h_1 = point_0.h - H_i_cvd
 point_1 = WSP(P=p_1t*1e-6, h=h_1)
+st.write("")
+st.write(point_1.P)
+st.write("")
 point_pp = WSP(P=ppp*1e-6, T=Tpp)
 p_pp_d = ppp - delta_p_pp
 point_pp_d = WSP(P=p_pp_d*1e-6, h=point_pp.h)
