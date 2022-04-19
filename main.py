@@ -92,6 +92,13 @@ def Calculate_eta_G0_Gk(N_e, p_0, T_0, p_pp, T_pp, p_k, T_pv):
     T_1 = point_1.T
     v_1 = point_1.v
     p_1 = point_1.P
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write(p_1)
+    st.write("")
+    st.write("")
+    st.write("")
     st.session_state.p_1 = f"{p_1:.2f}"
 
 
@@ -147,7 +154,9 @@ def Calculate_eta_G0_Gk(N_e, p_0, T_0, p_pp, T_pp, p_k, T_pv):
     H_i = eta_ir*((h_0-h_pv)+(h_pp-h_1))
     eta_m = 0.994
     eta_eg = 0.99
+
     G_0 = N_e/(H_i*eta_m*eta_eg*(10**3))
+
     G_k = N_e/((h_k-h_k_v)*eta_m*eta_eg*(10**3))*(1/eta_ir-1)
 
     return eta_ir, G_0, G_k
