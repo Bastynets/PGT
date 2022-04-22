@@ -28,7 +28,7 @@ doc.add_paragraph(" Исходные данные: ")
 age = st.slider('Укажите максимальную границу t0', min_value=500, max_value=550, step=1)
 age = age + 0.001  # Посмотреть надобность
 
-doc.add_paragraph("""Укажите максимальную границу t0""" % age)
+
 
 Ne = 212e6
 p0 = 12.5e6
@@ -51,6 +51,7 @@ delta_p = 0.03 * ppp
 z = 8
 
 st.write(""" P0 = """ + str(p0 * 10 ** (-6)) + """ МПа""")
+doc.add_paragraph(""" P0 = """ % p0)
 st.write(""" t0 = """ + str(T0_min - 273.15) + " - " + str(T0_max - 273.15) + """ C""")
 st.write(""" Pпп = """ + str(ppp * 10 ** (-6)) + """ МПа""")
 st.write(""" tпп = """ + str(tpp) + """ C """)
