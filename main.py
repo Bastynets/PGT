@@ -8,17 +8,22 @@ import math as M
 from sympy import *
 import docx
 
+doc = docx.Document('base.docx')
 
 
- 
+
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
+doc.add_paragraph("Выполнено: Бастынец А.К. ФПэ-01-19")
 st.write("Github: " + "https://github.com/Bastynets/PGT")
+doc.add_paragraph("Github: " + "https://github.com/Bastynets/PGT")
 st.write("# Задание 1")
-st.write(
-    """Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
+doc.add_paragraph("Задание 1")
+st.write("""Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
+doc.add_paragraph("""Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
 st.write("""# """)
-
+doc.add_paragraph(" ")
 st.write(" *Исходные данные:* ")
+doc.add_paragraph(" Исходные данные ")
 
 age = st.slider('Укажите максимальную границу t0', min_value=500, max_value=550, step=1)
 age = age + 0.001  # Посмотреть надобность
@@ -893,11 +898,11 @@ st.pyplot(fig)
 
 
 #ВЫВОД ПАРМЕТРОВ В ВОРД doc.remove_paragraph
-doc = docx.Document('base.docx')
-
-doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
-
-doc.add_picture('3.png', width=docx.shared.Inches(4), height=docx.shared.Inches(3))
+# doc = docx.Document('base.docx')
+#
+# doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
+#
+# doc.add_picture('3.png', width=docx.shared.Inches(4), height=docx.shared.Inches(3))
 
 doc.save('result.docx')
 
