@@ -885,8 +885,8 @@ st.pyplot(fig)
 
 
 
-doc = docx.Document()
-
-doc.add_paragraph('55')
-p_object = doc.add_paragraph('No')
-doc.save('New.docx')
+# doc = docx.Document()
+#
+# doc.add_paragraph('55')
+# p_object = doc.add_paragraph('No')
+# doc.save('New.docx')
