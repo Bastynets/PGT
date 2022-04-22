@@ -881,7 +881,7 @@ table = pd.DataFrame({"№ ст": (N_),
                       "Hi + Δ, кДж/кг": (Hdi_)
                       }
                      )
-pd.options.display.float_format = '{:.2f}'.format
+pd.options.display.float_format = "{:,.2f}".format
 st.dataframe(table)
 
 t_ = doc.add_table(table.shape[0]+1, table.shape[1])
