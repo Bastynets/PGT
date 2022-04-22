@@ -884,9 +884,20 @@ plt.title('Рисунок 7. Распределение теплоперепад
 st.pyplot(fig)
 
 
+#ВЫВОД ПАРМЕТРОВ В ВОРД
+doc = docx.Document('t.docx')
 
-# doc = docx.Document()
-#
-# doc.add_paragraph('55')
-# p_object = doc.add_paragraph('No')
-# doc.save('New.docx')
+doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
+p_object = doc.add_paragraph('No')
+
+
+doc.save('t.docx')
+
+
+
+st.download_button(
+     label="Download MSWordFile.docx",
+     data=doc,
+     file_name='t.docx',
+     mime='text/doc',
+ )
