@@ -899,5 +899,5 @@ st.download_button(
      label="Download MSWordFile.docx",
      data=doc,
      file_name='t.docx',
-     mime='text/doc',
+    
  )
