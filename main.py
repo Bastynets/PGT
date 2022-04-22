@@ -894,7 +894,7 @@ p_object = doc.add_paragraph('No')
 doc.save('t.docx')
 
 
-with open("t.docx") as file:
+with open("t.docx", "rb") as file:
     st.download_button(
          label="Download MSWordFile.docx",
          data=file,
