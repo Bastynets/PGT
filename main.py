@@ -599,7 +599,13 @@ plt.title("Треугольник скоростей")
 plt.xlabel("")
 plt.ylabel("")
 plt.grid()
+plt.savefig('3.png')
 st.pyplot(cw)
+
+
+
+
+
 
 st.write(" ")
 delta_a = 0.0025
@@ -889,7 +895,7 @@ doc = docx.Document('base.docx')
 
 doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
 
-doc.add_picture(hsstage)
+doc.add_picture('3.png', width=docx.shared.Inches(4), height=docx.shared.Inches(3))
 
 doc.save('result.docx')
 
