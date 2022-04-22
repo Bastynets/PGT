@@ -884,14 +884,11 @@ plt.title('Рисунок 7. Распределение теплоперепад
 st.pyplot(fig)
 
 
-#ВЫВОД ПАРМЕТРОВ В ВОРД
+#ВЫВОД ПАРМЕТРОВ В ВОРД doc.remove_paragraph
 doc = docx.Document('t.docx')
 
 doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
 p_object = doc.add_paragraph('No')
-
-
-doc.save('t.docx')
 
 
 with open("t.docx", "rb") as file:
@@ -900,3 +897,9 @@ with open("t.docx", "rb") as file:
          data=file,
          file_name='t.docx',
      )
+
+
+doc.save('t.docx')
+
+
+
