@@ -9,6 +9,8 @@ from sympy import *
 import docx
 
 
+
+ 
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
 st.write("Github: " + "https://github.com/Bastynets/PGT")
 st.write("# Задание 1")
