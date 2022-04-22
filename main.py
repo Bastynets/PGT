@@ -175,11 +175,14 @@ t0_f = [float(x) - 273.15 for x in T0]
 eta_f = [float(x) * 100 for x in eta]
 
 st.write(""" Максимальное КПД = """ + str('{:.4}'.format(float(eta_f[-1]))) + """ %""")
+doc.add_paragraph(""" Максимальное КПД = """ + str('{:.4}'.format(float(eta_f[-1]))) + """ %""")
 st.write(""" Расход пара на входе в турбину (G0) при макс. КПД = """ + str('{:.5}'.format(float(G0[-1]))) + """ кг/с""")
-st.write(
-    """ Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
+doc.add_paragraph(""" Расход пара на входе в турбину (G0) при макс. КПД = """ + str('{:.5}'.format(float(G0[-1]))) + """ кг/с""")
+st.write(""" Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
+doc.add_paragraph(""" Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
 st.write("""# """)
 st.write(" Табл. Зависимость КПД от t0 ")
+doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 
 t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "eta, %": (eta_f),
@@ -264,9 +267,13 @@ for x, y, ind in zip([point_1t.s, point_0_d.s], [point_1t.h, point_0_d.h], ['{1�
     plt.ylabel("h, кДж/кг")
     plt.grid(True)
 
+plt.savefig('1.png')
 st.pyplot(fighs)
+doc.add_picture('1.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+
 
 st.write("# Задание 2")
+doc.add_paragraph("Задание 2")
 
 p_0 = 12.5
 T_0 = T0_max
@@ -366,7 +373,11 @@ plt.title("Зависимость u/cf от etta ")
 plt.xlabel("u/cf")
 plt.ylabel("etta")
 plt.grid()
+plt.savefig('2.png')
 st.pyplot(ucf_eta)
+doc.add_picture('2.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+
+
 
 H_0 = 91  # при этом значении кпд максимальный
 u = M.pi * d * n
@@ -586,6 +597,8 @@ plt.xlabel("s, кДж/(кг*С)")
 plt.ylabel("h, кДж/кг")
 plt.grid()
 st.pyplot(hsstage)
+
+
 
 st.write(" ")
 cw = plt.figure()
