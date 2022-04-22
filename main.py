@@ -889,7 +889,7 @@ doc = docx.Document('base.docx')
 
 doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
 
-doc.add_paragraph(hsstage)
+doc.add_picture(hsstage)
 
 doc.save('result.docx')
 
