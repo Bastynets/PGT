@@ -28,7 +28,7 @@ doc.add_paragraph(" Исходные данные: ")
 age = st.slider('Укажите максимальную границу t0', min_value=500, max_value=550, step=1)
 age = age + 0.001  # Посмотреть надобность
 
-doc.add_paragraph("Укажите максимальную границу t0" % age)
+doc.add_paragraph("""Укажите максимальную границу t0""" % age)
 
 Ne = 212e6
 p0 = 12.5e6
