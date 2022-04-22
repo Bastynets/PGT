@@ -52,16 +52,24 @@ z = 8
 
 st.write(""" P0 = """ + str(p0 * 10 ** (-6)) + """ МПа""")
 doc.add_paragraph(""" P0 = """ + str(p0 * 10 ** (-6)) + """ МПа""")
-st.write(""" t0 = """ + str(T0_min - 273.15) + " - " + str(T0_max - 273.15) + """ C""")
+st.write(""" t0 = """ + str(T0_max - 273.15) + """ C""")
+doc.add_paragraph(""" t0 = """ + str(T0_max - 273.15) + """ C""")
 st.write(""" Pпп = """ + str(ppp * 10 ** (-6)) + """ МПа""")
+doc.add_paragraph(""" Pпп = """ + str(ppp * 10 ** (-6)) + """ МПа""")
 st.write(""" tпп = """ + str(tpp) + """ C """)
+doc.add_paragraph(""" tпп = """ + str(tpp) + """ C """)
 st.write(""" Pк = """ + str(pk * 10 ** (-3)) + """ кПа """)
+doc.add_paragraph(""" Pк = """ + str(pk * 10 ** (-3)) + """ кПа """)
 st.write(""" tпв = """ + str(tpv) + """ C """)
+doc.add_paragraph(""" tпв = """ + str(tpv) + """ C """)
 st.write(""" Nэ = """ + str(Ne * 10 ** (-6)) + """ МВт """)
+doc.add_paragraph(""" Nэ = """ + str(Ne * 10 ** (-6)) + """ МВт """)
 st.write(""" Z = """ + str(z) + """ шт """)
+doc.add_paragraph(""" Z = """ + str(z) + """ шт """)
 
 st.write("""# """)
 st.write(" *Решение:* ")
+doc.add_paragraph(" Решение: ")
 
 
 def Calculate_eta_G0_Gk(N_e, p_0, T_0, p_pp, T_pp, p_k, T_pv):
