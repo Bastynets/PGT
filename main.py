@@ -887,11 +887,11 @@ st.pyplot(fig)
 #ВЫВОД ПАРМЕТРОВ В ВОРД
 doc = docx.Document('t.docx')
 
-doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
-p_object = doc.add_paragraph('No')
-
-
-doc.save('t.docx')
+# doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
+# p_object = doc.add_paragraph('No')
+#
+#
+# doc.save('t.docx')
 
 
 
