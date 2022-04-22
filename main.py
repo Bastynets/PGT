@@ -884,6 +884,17 @@ table = pd.DataFrame({"№ ст": (N_),
 
 st.dataframe(table)
 
+t_ = doc.add_table(table.shape[0]+1, table.shape[1])
+
+# add the header rows.
+for j in range(table.shape[-1]):
+    t.cell(0,j).text = table.columns[j]
+
+# add the rest of the data frame
+for i in range(table.shape[0]):
+    for j in range(table.shape[-1]):
+        t.cell(i+1,j).text = str(table.values[i,j])
+
 ## Графики
 z = []
 for a in range(1, Z + 1):
