@@ -600,7 +600,9 @@ plt.title("h - s диаграмма")
 plt.xlabel("s, кДж/(кг*С)")
 plt.ylabel("h, кДж/кг")
 plt.grid()
+plt.savefig('4.png')
 st.pyplot(hsstage)
+doc.add_picture('4.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 
 
@@ -634,8 +636,9 @@ plt.title("Треугольник скоростей")
 plt.xlabel("")
 plt.ylabel("")
 plt.grid()
-plt.savefig('3.png')
+plt.savefig('4.png')
 st.pyplot(cw)
+doc.add_picture('4.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 
 
@@ -684,11 +687,11 @@ Delta_H_parc = E_0 * xi_parc
 H_i = E_0 - Delta_Hr * 1e-3 - Delta_Hs * 1e-3 - (1 - Kappa_VS) * Delta_Hvs * 1e-3 - Delta_Hub - Delta_Htr - Delta_H_parc
 
 eta_oi = H_i / E_0
-st.write("""Внутренний относительный КПД ступени  
-        eta_oi  = %.3f """ % eta_oi)
+st.write("""Внутренний относительный КПД ступени eta_oi  = %.3f """ % eta_oi)
+doc.add_paragraph("""Внутренний относительный КПД ступени eta_oi  = %.3f """ % eta_oi)
 N_i = G_0 * H_i
-st.write("""Внутреняя мощность ступени  
-            N_i =  %.2f кВт""" % N_i)
+st.write("""Внутреняя мощность ступени N_i =  %.2f кВт""" % N_i)
+doc.add_paragraph("""Внутреняя мощность ступени N_i =  %.2f кВт""" % N_i)
 
 # st.write(point_0_d.P) #точка которая покажет p0 11.875 МПа
 # st.write(point_0_d.h) #точка которая покажет h0 3343.566271475289 кдж
@@ -698,8 +701,9 @@ st.write("""Внутреняя мощность ступени
 
 
 st.write("# Задание 3")
-
+doc.add_paragraph(" Задание 3")
 st.write("""Определение числа ступеней и распределение параметров по ним""")
+doc.add_paragraph("""Определение числа ступеней и распределение параметров по ним""")
 st.write("""# """)
 
 # Исходные данные
@@ -723,17 +727,27 @@ tetta = 20
 
 st.write("""# """)
 st.write(" *Дано:* ")
+doc.add_paragraph(" Дано:* ")
 st.write(""" P0 = """ + str('{:.3}'.format(float(P0))) + """ МПа""")
+doc.add_paragraph(""" P0 = """ + str('{:.3}'.format(float(P0))) + """ МПа""")
 st.write(""" h0 = """ + str('{:.2f}'.format(float(h0))) + """ кДж/кг""")
+doc.add_paragraph(""" h0 = """ + str('{:.2f}'.format(float(h0))) + """ кДж/кг""")
 st.write(""" dрс = """ + str(drs) + """ м """)
+doc.add_paragraph(""" dрс = """ + str(drs) + """ м """)
 st.write(""" Z = """ + str(Z) + """ шт """)
+doc.add_paragraph(""" Z = """ + str(Z) + """ шт """)
 st.write(""" G0 = """ + str('{:.2f}'.format(float(G0))) + """ кг/с """)
+doc.add_paragraph(""" G0 = """ + str('{:.2f}'.format(float(G0))) + """ кг/с """)
 st.write(""" n = """ + str(n) + """ Гц """)
+doc.add_paragraph(""" n = """ + str(n) + """ Гц """)
 st.write(""" eta_oi = """ + str('{:.2}'.format(float(etaoi))) + """ """)
+doc.add_paragraph(""" eta_oi = """ + str('{:.2}'.format(float(etaoi))) + """ """)
 st.write(""" Pz = """ + str('{:.3}'.format(float(Pz))) + """ МПа """)
+doc.add_paragraph(""" Pz = """ + str('{:.3}'.format(float(Pz))) + """ МПа """)
 
 st.write("""# """)
 st.write(" *Решение:* ")
+doc.add_paragraph("Решение:")
 
 D1 = drs - deltaD
 sat_steam = WSP(P=P0, h=h0)
@@ -868,7 +882,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, di_, '-ro')
 plt.title('Рисунок 1. Распределение средних диаметров по проточной части')
+plt.savefig('11.png')
 st.pyplot(fig)
+doc.add_picture('11.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -877,7 +893,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, li_, '-ro')
 plt.title('Рисунок 2. Распределение высот лопаток по проточной части')
+plt.savefig('12.png')
 st.pyplot(fig)
+doc.add_picture('12.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -886,7 +904,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, tettai_, '-ro')
 plt.title('Рисунок 3. Распределение обратной веерности по проточной части')
+plt.savefig('13.png')
 st.pyplot(fig)
+doc.add_picture('13.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -895,7 +915,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, rhoi_, '-ro')
 plt.title('Рисунок 4. Распределение степени реактивности по проточной части')
+plt.savefig('14.png')
 st.pyplot(fig)
+doc.add_picture('14.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -904,7 +926,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, Xi_, '-ro')
 plt.title('Рисунок 5. Распределение U/Cф по проточной части')
+plt.savefig('15.png')
 st.pyplot(fig)
+doc.add_picture('15.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -913,7 +937,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, Hi_, '-ro')
 plt.title('Рисунок 6. Распределение теплоперепадов по проточной части')
+plt.savefig('16.png')
 st.pyplot(fig)
+doc.add_picture('16.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -922,7 +948,9 @@ ax.set_xticks(np.arange(1, 20, 1))
 plt.grid(True)
 plt.plot(z, Hdi_, '-ro')
 plt.title('Рисунок 7. Распределение теплоперепадов с учетом невязки по проточной части')
+plt.savefig('17.png')
 st.pyplot(fig)
+doc.add_picture('17.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 
 #ВЫВОД ПАРМЕТРОВ В ВОРД doc.remove_paragraph
