@@ -202,7 +202,11 @@ plt.xlabel("t0, C")
 plt.ylabel("КПД, %")
 plt.grid()
 
+plt.savefig('1.png')
 st.pyplot(t0__eta)
+doc.add_picture('1.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+
+
 
 st.title(""" """)
 
@@ -267,9 +271,9 @@ for x, y, ind in zip([point_1t.s, point_0_d.s], [point_1t.h, point_0_d.h], ['{1�
     plt.ylabel("h, кДж/кг")
     plt.grid(True)
 
-plt.savefig('1.png')
+plt.savefig('2.png')
 st.pyplot(fighs)
-doc.add_picture('1.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+doc.add_picture('2.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 
 st.write("# Задание 2")
@@ -373,9 +377,9 @@ plt.title("Зависимость u/cf от etta ")
 plt.xlabel("u/cf")
 plt.ylabel("etta")
 plt.grid()
-plt.savefig('2.png')
+plt.savefig('3.png')
 st.pyplot(ucf_eta)
-doc.add_picture('2.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+doc.add_picture('3.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
 
 
