@@ -888,8 +888,8 @@ st.pyplot(fig)
 doc = docx.Document('base.docx')
 
 doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
-p_object = doc.add_paragraph('No')
 
+doc.add_paragraph(hsstage)
 
 doc.save('result.docx')
 
