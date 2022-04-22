@@ -191,6 +191,20 @@ t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        })
 st.dataframe(t0_eta)
 
+t = doc.add_table(t0_eta.shape[0]+1, t0_eta.shape[1])
+
+# add the header rows.
+for j in range(t0_eta.shape[-1]):
+    t.cell(0,j).text = t0_eta.columns[j]
+
+# add the rest of the data frame
+for i in range(t0_eta.shape[0]):
+    for j in range(t0_eta.shape[-1]):
+        t.cell(i+1,j).text = str(t0_eta.values[i,j])
+
+
+
+
 st.write("""# """)
 
 t0__eta = plt.figure()
