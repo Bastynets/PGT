@@ -51,7 +51,7 @@ delta_p = 0.03 * ppp
 z = 8
 
 st.write(""" P0 = """ + str(p0 * 10 ** (-6)) + """ МПа""")
-doc.add_paragraph(""" P0 = """ % p0)
+doc.add_paragraph(""" P0 = """ + str(p0 * 10 ** (-6)) + """ МПа""")
 st.write(""" t0 = """ + str(T0_min - 273.15) + " - " + str(T0_max - 273.15) + """ C""")
 st.write(""" Pпп = """ + str(ppp * 10 ** (-6)) + """ МПа""")
 st.write(""" tпп = """ + str(tpp) + """ C """)
