@@ -885,18 +885,18 @@ st.pyplot(fig)
 
 
 #ВЫВОД ПАРМЕТРОВ В ВОРД doc.remove_paragraph
-doc = docx.Document('test.docx')
+doc = docx.Document('test1.docx')
 
 doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
 p_object = doc.add_paragraph('No')
 
 
-doc.save('test.docx')
+doc.save('test2.docx')
 
 
-with open("test.docx", "rb") as file:
+with open("test2.docx", "rb") as file:
     st.download_button(
          label="Download MSWordFile.docx",
          data=file,
-         file_name='test.docx',
+         file_name='test2.docx',
      )
