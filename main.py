@@ -13,8 +13,8 @@ import docx
 doc = docx.Document('base.docx')
 # pd.set_option("pd.options.display.float_format", 2)
 
-pd.set_option('float_format' ' .2f '.format)
-#pd.set_option('display.float_format', '{:.2f}'.format)
+#pd.set_option('float_format' ' .2f '.format)
+pd.set_option('display.float_format', '{:.2f}'.format)
 
 #pd.options.display.float_format = "{:,.2f}".format
 
