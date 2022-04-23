@@ -12,7 +12,7 @@ doc = docx.Document('base.docx')
 # pd.set_option("pd.options.display.float_format", 2)
 
 # pd.set_option('float_format' ' .2f '.format)
-pd.set_option('display.float_format', lambda x: '%.2f' % x)
+# pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 # pd.options.display.float_format = "{:,.2f}".format
 
@@ -192,21 +192,21 @@ st.write("""# """)
 st.write(" Табл. Зависимость КПД от t0 ")
 doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 # "H_k":round(H_k*1e-3,2),
-# t0_eta = pd.DataFrame({"t0, C":(t0_f),
-#                        "eta, %":round(eta_f,2),
-#                        "G_0, кг/с":round(G0,2),
-#                        "G_k, кг/с":round(Gk,2)
-#                        })
+t0_eta = pd.DataFrame({"t0, C":[round (t0_f,1)],
+                       "eta, %":round(eta_f,2),
+                       "G_0, кг/с":round(G0,2),
+                       "G_k, кг/с":round(Gk,2)
+                       })
 
-pd.set_option('display.float_format', lambda x: '%.2f' % x)
-# pd.options.display.float_format = "{:,.2f}".format
-t0_eta = pd.DataFrame({"t0, C": (t0_f),
-                       "eta, %": (eta_f),
-                       "G_0, кг/с": (G0),
-                       "G_k, кг/с": (Gk)
-                       }
-                      )
-pd.set_option('display.float_format', lambda x: '%.2f' % x)
+# pd.set_option('display.float_format', lambda x: '%.2f' % x)
+# # pd.options.display.float_format = "{:,.2f}".format
+# t0_eta = pd.DataFrame({"t0, C": (t0_f),
+#                        "eta, %": (eta_f),
+#                        "G_0, кг/с": (G0),
+#                        "G_k, кг/с": (Gk)
+#                        }
+#                       )
+# pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 st.dataframe(t0_eta)
 
