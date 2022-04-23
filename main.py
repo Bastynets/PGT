@@ -8,10 +8,13 @@ import math as M
 from sympy import *
 import docx
 
+
+
 doc = docx.Document('base.docx')
 # pd.set_option("pd.options.display.float_format", 2)
 
-
+pd.set_option('float_format' ' .2f '.format)
+#pd.set_option('display.float_format', '{:.2f}'.format)
 
 #pd.options.display.float_format = "{:,.2f}".format
 
@@ -195,7 +198,7 @@ doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 #                        })
 
 
-pd.options.display.float_format = "{:,.2f}".format
+#pd.options.display.float_format = "{:,.2f}".format
 t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "eta, %": (eta_f),
                        "G_0, кг/с": (G0),
