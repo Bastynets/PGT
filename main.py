@@ -183,13 +183,11 @@ doc.add_paragraph(""" Расход пара на входе в конденса�
 st.write("""# """)
 st.write(" Табл. Зависимость КПД от t0 ")
 doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
-
-
-pd.options.display.float_format = "{:,.2f}".format
-t0_eta = pd.DataFrame({"t0, C": (t0_f),
-                       "eta, %": (eta_f),
-                       "G_0, кг/с": (G0),
-                       "G_k, кг/с": (Gk)
+#"H_k":round(H_k*1e-3,2),
+t0_eta = pd.DataFrame({"t0, C":round(t0_f),
+                       "eta, %":round(eta_f,2),
+                       "G_0, кг/с":round(G0,2),
+                       "G_k, кг/с":round(Gk,2)
                        })
 st.dataframe(t0_eta)
 
@@ -873,17 +871,17 @@ Hi_ = [float(x) for x in Hi_]
 Hdi_ = [float(x) for x in Hdi_]
 
 ## Таблица
-table = pd.DataFrame({"№ ст": (N_),
-                      "di, м": (di_),
-                      "li, м": (li_),
-                      "θi ": (tettai_),
-                      "ρi ": (rhoi_),
-                      "Xi ": (Xi_),
-                      "Hi, кДж/кг": (Hi_),
-                      "Hi + Δ, кДж/кг": (Hdi_)
+table = pd.DataFrame({"№ ст":round(N_),
+                      "di, м":round(di_,3),
+                      "li, м":round(li_,3),
+                      "θi ":round(tettai_,2),
+                      "ρi ":round(rhoi_,3),
+                      "Xi ":round(Xi_),
+                      "Hi, кДж/кг":round(Hi_,2),
+                      "Hi + Δ, кДж/кг":round(Hdi_,2)
                       }
                      )
-pd.options.display.float_format = "{:,.2f}".format
+
 st.dataframe(table)
 
 t_ = doc.add_table(table.shape[0]+1, table.shape[1])
