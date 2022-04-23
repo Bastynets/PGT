@@ -205,7 +205,7 @@ t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "G_k, кг/с": (Gk)
                        }
                       )
-st.dataframe(str('{:.5}'.format(float(t0_eta))))
+st.dataframe(str('{:.5}'.format(t0_eta)))
 
 
 t = doc.add_table(t0_eta.shape[0]+1, t0_eta.shape[1])
