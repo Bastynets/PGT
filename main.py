@@ -9,8 +9,11 @@ from sympy import *
 import docx
 
 doc = docx.Document('base.docx')
-pd.set_option()
-pd.options.display.float_format = "{:,.2f}".format
+pd.set_option("pd.options.display.float_format", 2)
+
+
+
+#pd.options.display.float_format = "{:,.2f}".format
 
 
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
