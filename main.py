@@ -198,14 +198,14 @@ doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 #                        })
 
 
-pd.options.display.float_format = "{:,.2f}".format
+# pd.options.display.float_format = "{:,.2f}".format
 t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "eta, %": (eta_f),
                        "G_0, кг/с": (G0),
                        "G_k, кг/с": (Gk)
                        }
                       )
-st.dataframe(t0_eta,2)
+st.dataframe(t0_eta + str(pd.options.display.float_format))
 
 
 t = doc.add_table(t0_eta.shape[0]+1, t0_eta.shape[1])
