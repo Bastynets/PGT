@@ -14,7 +14,7 @@ doc = docx.Document('base.docx')
 # pd.set_option("pd.options.display.float_format", 2)
 
 #pd.set_option('float_format' ' .2f '.format)
-pd.set_option('t0_eta', '{:.2f}'.format)
+pd.set_option('display.float_format', '{:.2f}'.format)
 
 #pd.options.display.float_format = "{:,.2f}".format
 
@@ -205,7 +205,7 @@ t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "G_k, кг/с": (Gk)
                        }
                       )
-st.dataframe(t0_eta)
+st.dataframe(t0_eta,2)
 
 
 t = doc.add_table(t0_eta.shape[0]+1, t0_eta.shape[1])
