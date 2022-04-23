@@ -209,25 +209,25 @@ t0_eta = pd.DataFrame({"t0, C": (t0_f),
 
 st.dataframe(t0_eta)
 
-
-
-
-itog=pd.DataFrame({"t0, C":[t0_f],
-                  "eta, %":round(eta_f, 2),
-                  "G_0, кг/с":round(G0, 2),
-                  "G_k, кг/с":round(Gk, 2)})
-itog
-
-t = doc.add_table(itog.shape[0] + 1, itog.shape[1])
-
-# add the header rows.
-for j in range(itog.shape[-1]):
-    t.cell(0, j).text = itog.columns[j]
-
-# add the rest of the data frame
-for i in range(itog.shape[0]):
-    for j in range(itog.shape[-1]):
-        t.cell(i + 1, j).text = str(itog.values[i, j])
+#
+#
+#
+# itog=pd.DataFrame({"t0, C":[t0_f],
+#                   "eta, %":round(eta_f, 2),
+#                   "G_0, кг/с":round(G0, 2),
+#                   "G_k, кг/с":round(Gk, 2)})
+# itog
+#
+# t = doc.add_table(itog.shape[0] + 1, itog.shape[1])
+#
+# # add the header rows.
+# for j in range(itog.shape[-1]):
+#     t.cell(0, j).text = itog.columns[j]
+#
+# # add the rest of the data frame
+# for i in range(itog.shape[0]):
+#     for j in range(itog.shape[-1]):
+#         t.cell(i + 1, j).text = str(itog.values[i, j])
 
 st.write("""# """)
 
@@ -905,18 +905,18 @@ table = pd.DataFrame({"№ ст": (N_),
                      )
 st.dataframe(table)
 
-t_ = doc.add_table(table.shape[0] + 1, table.shape[1])
-
-# add the header rows.
-for j in range(table.shape[-1]):
-    t_.cell(0, j).text = table.columns[j]
-
-# add the rest of the data frame
-for i in range(table.shape[0]):
-    for j in range(table.shape[-1]):
-        t_.cell(i + 1, j).text = str(table.values[i, j])
-
-## Графики
+# t_ = doc.add_table(table.shape[0] + 1, table.shape[1])
+#
+# # add the header rows.
+# for j in range(table.shape[-1]):
+#     t_.cell(0, j).text = table.columns[j]
+#
+# # add the rest of the data frame
+# for i in range(table.shape[0]):
+#     for j in range(table.shape[-1]):
+#         t_.cell(i + 1, j).text = str(table.values[i, j])
+#
+# ## Графики
 z = []
 for a in range(1, Z + 1):
     z.append(a)
@@ -930,7 +930,7 @@ plt.plot(z, di_, '-ro')
 plt.title('Рисунок 1. Распределение средних диаметров по проточной части')
 plt.savefig('11.png')
 st.pyplot(fig)
-doc.add_picture('11.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+doc.add_picture('11.png')
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
@@ -941,7 +941,7 @@ plt.plot(z, li_, '-ro')
 plt.title('Рисунок 2. Распределение высот лопаток по проточной части')
 plt.savefig('12.png')
 st.pyplot(fig)
-doc.add_picture('12.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+doc.add_picture('12.png')
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
