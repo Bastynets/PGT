@@ -192,34 +192,42 @@ st.write("""# """)
 st.write(" Табл. Зависимость КПД от t0 ")
 doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 # "H_k":round(H_k*1e-3,2),
-t0_eta = pd.DataFrame({"t0, C":[t0_f],
-                       "eta, %":[round(eta_f,2)],
-                       "G_0, кг/с":[round(G0,2)],
-                       "G_k, кг/с":[round(Gk,2)]
-                       })
+# t0_eta = pd.DataFrame({"t0, C":[t0_f],
+#                        "eta, %":[round(2,eta_f)],
+#                        "G_0, кг/с":[round(2,G0)],
+#                        "G_k, кг/с":[round(2,Gk)]
+#                        })
 
-# pd.set_option('display.float_format', lambda x: '%.2f' % x)
-# # pd.options.display.float_format = "{:,.2f}".format
-# t0_eta = pd.DataFrame({"t0, C": (t0_f),
-#                        "eta, %": (eta_f),
-#                        "G_0, кг/с": (G0),
-#                        "G_k, кг/с": (Gk)
-#                        }
-#                       )
-# pd.set_option('display.float_format', lambda x: '%.2f' % x)
+
+t0_eta = pd.DataFrame({"t0, C": (t0_f),
+                       "eta, %": (eta_f),
+                       "G_0, кг/с": (G0),
+                       "G_k, кг/с": (Gk)
+                       }
+                      )
+
 
 st.dataframe(t0_eta)
 
-t = doc.add_table(t0_eta.shape[0] + 1, t0_eta.shape[1])
+
+
+
+itog=pd.DataFrame({"t0, C":[t0_f],
+                  "eta, %":round(eta_f, 2),
+                  "G_0, кг/с":round(G0, 2),
+                  "G_k, кг/с":round(Gk, 2)})
+itog
+
+t = doc.add_table(itog.shape[0] + 1, itog.shape[1])
 
 # add the header rows.
-for j in range(t0_eta.shape[-1]):
-    t.cell(0, j).text = t0_eta.columns[j]
+for j in range(itog.shape[-1]):
+    t.cell(0, j).text = itog.columns[j]
 
 # add the rest of the data frame
-for i in range(t0_eta.shape[0]):
-    for j in range(t0_eta.shape[-1]):
-        t.cell(i + 1, j).text = str(t0_eta.values[i, j])
+for i in range(itog.shape[0]):
+    for j in range(itog.shape[-1]):
+        t.cell(i + 1, j).text = str(itog.values[i, j])
 
 st.write("""# """)
 
