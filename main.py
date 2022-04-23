@@ -9,7 +9,7 @@ from sympy import *
 import docx
 
 doc = docx.Document('base.docx')
-pd.set_option("pd.options.display.float_format", 2)
+# pd.set_option("pd.options.display.float_format", 2)
 
 
 
@@ -193,13 +193,16 @@ doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 #                        "G_0, кг/с":round(G0,2),
 #                        "G_k, кг/с":round(Gk,2)
 #                        })
+
+
+pd.options.display.float_format = "{:,.2f}".format
 t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "eta, %": (eta_f),
                        "G_0, кг/с": (G0),
                        "G_k, кг/с": (Gk)
                        }
                       )
-st.dataframe(t0_eta)
+st.dataframe(t0_eta.to_string(formatters={'t0, C':'{:,.2f}'.formatt}))
 
 
 t = doc.add_table(t0_eta.shape[0]+1, t0_eta.shape[1])
