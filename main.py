@@ -8,13 +8,7 @@ import math as M
 from sympy import *
 import docx
 
-doc = docx.Document('base.docx')
-# pd.set_option("pd.options.display.float_format", 2)
-
-# pd.set_option('float_format' ' .2f '.format)
-# pd.set_option('display.float_format', lambda x: '%.2f' % x)
-
-# pd.options.display.float_format = "{:,.2f}".format
+doc = docx.Document()
 
 
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
