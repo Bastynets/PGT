@@ -930,7 +930,7 @@ plt.plot(z, di_, '-ro')
 plt.title('Рисунок 1. Распределение средних диаметров по проточной части')
 plt.savefig('11.png')
 st.pyplot(fig)
-doc.add_picture('11.png', width=docx.shared.Inches(7), height=docx.shared.Inches(3.5))
+doc.add_picture('11.png', width=docx.shared.Inches(6), height=docx.shared.Inches(3))
 
 st.write("#")
 fig = plt.figure(figsize=(10, 5))
