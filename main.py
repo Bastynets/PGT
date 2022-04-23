@@ -192,7 +192,7 @@ st.write("""# """)
 st.write(" Табл. Зависимость КПД от t0 ")
 doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 # "H_k":round(H_k*1e-3,2),
-t0_eta = pd.DataFrame({"t0, C":[round (t0_f,1)],
+t0_eta = pd.DataFrame({"t0, C":[t0_f],
                        "eta, %":round(eta_f,2),
                        "G_0, кг/с":round(G0,2),
                        "G_k, кг/с":round(Gk,2)
