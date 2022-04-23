@@ -12,7 +12,7 @@ doc = docx.Document('base.docx')
 # pd.set_option("pd.options.display.float_format", 2)
 
 # pd.set_option('float_format' ' .2f '.format)
-pd.set_option('display.float_format', lambda x: '.2f' % x)
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 # pd.options.display.float_format = "{:,.2f}".format
 
@@ -198,7 +198,7 @@ doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
 #                        "G_k, кг/с":round(Gk,2)
 #                        })
 
-
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
 # pd.options.display.float_format = "{:,.2f}".format
 t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "eta, %": (eta_f),
@@ -206,6 +206,8 @@ t0_eta = pd.DataFrame({"t0, C": (t0_f),
                        "G_k, кг/с": (Gk)
                        }
                       )
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
+
 st.dataframe(t0_eta)
 
 t = doc.add_table(t0_eta.shape[0] + 1, t0_eta.shape[1])
