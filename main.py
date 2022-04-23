@@ -8,15 +8,13 @@ import math as M
 from sympy import *
 import docx
 
-
-
 doc = docx.Document('base.docx')
 # pd.set_option("pd.options.display.float_format", 2)
 
-#pd.set_option('float_format' ' .2f '.format)
-pd.set_option('display.float_format', lambda x:':.2f'%x)
+# pd.set_option('float_format' ' .2f '.format)
+pd.set_option('display.float_format', lambda x: '.2f' % x)
 
-#pd.options.display.float_format = "{:,.2f}".format
+# pd.options.display.float_format = "{:,.2f}".format
 
 
 st.write("Выполнено: Бастынец А.К. ФПэ-01-19")
@@ -25,8 +23,10 @@ st.write("Github: " + "https://github.com/Bastynets/PGT")
 doc.add_paragraph("Github: " + "https://github.com/Bastynets/PGT")
 st.write("# Задание 1")
 doc.add_paragraph("Задание 1")
-st.write("""Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
-doc.add_paragraph("""Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
+st.write(
+    """Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
+doc.add_paragraph(
+    """Построить процесс расширения пара в турбине. Определение расходов пара на входе в турбину (G0) и в конденсатор (Gк). Получить зависимость КПД ПТУ от параметра заданного в таблице.""")
 st.write("""# """)
 doc.add_paragraph(" ")
 st.write(" *Исходные данные:* ")
@@ -34,8 +34,6 @@ doc.add_paragraph(" Исходные данные: ")
 
 age = st.slider('Укажите максимальную границу t0', min_value=500, max_value=550, step=1)
 age = age + 0.001  # Посмотреть надобность
-
-
 
 Ne = 212e6
 p0 = 12.5e6
@@ -137,7 +135,7 @@ def Calculate_eta_G0_Gk(N_e, p_0, T_0, p_pp, T_pp, p_k, T_pv):
     h_pv = point_pv.h
     s_pv = point_pv.s
     ksi_pp_oo = 1 - (1 - (T_k * (s_pp - s_k_v)) / ((h_0 - h_1t) + (h_pp - h_k_v))) / (
-                1 - (T_k * (s_pp - s_pv)) / ((h_0 - h_1t) + (h_pp - h_pv)))
+            1 - (T_k * (s_pp - s_pv)) / ((h_0 - h_1t) + (h_pp - h_pv)))
     # T_0_= WSP(P = p_pv*10**(-6),x = 0).T
     T_0_ = 374.2 + 273.15
     T_ = (point_pv.T - point_k.T) / (T_0_ - point_k.T)
@@ -184,13 +182,16 @@ eta_f = [float(x) * 100 for x in eta]
 st.write(""" Максимальное КПД = """ + str('{:.4}'.format(float(eta_f[-1]))) + """ %""")
 doc.add_paragraph(""" Максимальное КПД = """ + str('{:.4}'.format(float(eta_f[-1]))) + """ %""")
 st.write(""" Расход пара на входе в турбину (G0) при макс. КПД = """ + str('{:.5}'.format(float(G0[-1]))) + """ кг/с""")
-doc.add_paragraph(""" Расход пара на входе в турбину (G0) при макс. КПД = """ + str('{:.5}'.format(float(G0[-1]))) + """ кг/с""")
-st.write(""" Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
-doc.add_paragraph(""" Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
+doc.add_paragraph(
+    """ Расход пара на входе в турбину (G0) при макс. КПД = """ + str('{:.5}'.format(float(G0[-1]))) + """ кг/с""")
+st.write(
+    """ Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
+doc.add_paragraph(
+    """ Расход пара на входе в конденсатор (Gк) при макс. КПД = """ + str('{:.5}'.format(float(Gk[-1]))) + """ кг/с""")
 st.write("""# """)
 st.write(" Табл. Зависимость КПД от t0 ")
 doc.add_paragraph(" Табл. Зависимость КПД от t0 ")
-#"H_k":round(H_k*1e-3,2),
+# "H_k":round(H_k*1e-3,2),
 # t0_eta = pd.DataFrame({"t0, C":(t0_f),
 #                        "eta, %":round(eta_f,2),
 #                        "G_0, кг/с":round(G0,2),
@@ -207,20 +208,16 @@ t0_eta = pd.DataFrame({"t0, C": (t0_f),
                       )
 st.dataframe(t0_eta)
 
-
-t = doc.add_table(t0_eta.shape[0]+1, t0_eta.shape[1])
+t = doc.add_table(t0_eta.shape[0] + 1, t0_eta.shape[1])
 
 # add the header rows.
 for j in range(t0_eta.shape[-1]):
-    t.cell(0,j).text = t0_eta.columns[j]
+    t.cell(0, j).text = t0_eta.columns[j]
 
 # add the rest of the data frame
 for i in range(t0_eta.shape[0]):
     for j in range(t0_eta.shape[-1]):
-        t.cell(i+1,j).text = str(t0_eta.values[i,j])
-
-
-
+        t.cell(i + 1, j).text = str(t0_eta.values[i, j])
 
 st.write("""# """)
 
@@ -236,8 +233,6 @@ plt.grid()
 plt.savefig('1.png')
 st.pyplot(t0__eta)
 doc.add_picture('1.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
-
-
 
 st.title(""" """)
 
@@ -305,7 +300,6 @@ for x, y, ind in zip([point_1t.s, point_0_d.s], [point_1t.h, point_0_d.h], ['{1�
 plt.savefig('2.png')
 st.pyplot(fighs)
 doc.add_picture('2.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
-
 
 st.write("# Задание 2")
 doc.add_paragraph("Задание 2")
@@ -411,8 +405,6 @@ plt.grid()
 plt.savefig('3.png')
 st.pyplot(ucf_eta)
 doc.add_picture('3.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
-
-
 
 H_0 = 91  # при этом значении кпд максимальный
 u = M.pi * d * n
@@ -635,8 +627,6 @@ plt.savefig('4.png')
 st.pyplot(hsstage)
 doc.add_picture('4.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
-
-
 st.write(" ")
 cw = plt.figure()
 c_1u = c_1 * M.cos(M.radians(alpha_1))
@@ -670,11 +660,6 @@ plt.grid()
 plt.savefig('4.png')
 st.pyplot(cw)
 doc.add_picture('4.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
-
-
-
-
-
 
 st.write(" ")
 delta_a = 0.0025
@@ -907,19 +892,19 @@ table = pd.DataFrame({"№ ст": (N_),
                       "Hi, кДж/кг": (Hi_),
                       "Hi + Δ, кДж/кг": (Hdi_)
                       }
-                    )
+                     )
 st.dataframe(table)
 
-t_ = doc.add_table(table.shape[0]+1, table.shape[1])
+t_ = doc.add_table(table.shape[0] + 1, table.shape[1])
 
 # add the header rows.
 for j in range(table.shape[-1]):
-    t_.cell(0,j).text = table.columns[j]
+    t_.cell(0, j).text = table.columns[j]
 
 # add the rest of the data frame
 for i in range(table.shape[0]):
     for j in range(table.shape[-1]):
-        t_.cell(i+1,j).text = str(table.values[i,j])
+        t_.cell(i + 1, j).text = str(table.values[i, j])
 
 ## Графики
 z = []
@@ -1003,8 +988,7 @@ plt.savefig('17.png')
 st.pyplot(fig)
 doc.add_picture('17.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
 
-
-#ВЫВОД ПАРМЕТРОВ В ВОРД doc.remove_paragraph
+# ВЫВОД ПАРМЕТРОВ В ВОРД doc.remove_paragraph
 # doc = docx.Document('base.docx')
 #
 # doc.add_paragraph("""Внутренний относительный КПД ступени   eta_oi  = %.3f """ % eta_oi)
@@ -1013,10 +997,9 @@ doc.add_picture('17.png', width=docx.shared.Inches(5), height=docx.shared.Inches
 
 doc.save('result.docx')
 
-
 with open("result.docx", "rb") as file:
     st.download_button(
-         label="Download Result",
-         data=file,
-         file_name='result.docx',
-     )
+        label="Download Result",
+        data=file,
+        file_name='result.docx',
+    )
