@@ -1016,27 +1016,27 @@ r_st = d_st / 2
 r_r = 410
 r_r2 = r_val - 160
 
-plt.plot([0, 0], [0, rrs], c="g")
-plt.plot([0, 120], [rrs, rrs], c="g")
-plt.plot([120, 120], [rrs, 0], c="g")
-plt.plot([120, 240], [r_val, r_val], c="g")
-plt.plot([0, -540], [r_val, r_val], c="g")
+plt.plot([0, 0], [0, rrs], c="k")
+plt.plot([0, 120], [rrs, rrs], c="k")
+plt.plot([120, 120], [rrs, 0], c="k")
+plt.plot([120, 240], [r_val, r_val], c="k")
+plt.plot([0, -540], [r_val, r_val], c="k")
 n1 = 0
 n2 = 0
 k = 1
 
 for i in range(z - 1):
     if i % 2 != 0:
-        plt.plot([240 + n1, 360 + n1], [r_val, r_val], c="g")
-        plt.plot([360 + n1, 360 + n1], [0, r_r], c="g")
-        plt.plot([360 + n1, 420 + n1], [r_r, r_r], c="g")
-        plt.plot([420 + n1, 420 + n1], [r_r, 0], c="g")
+        plt.plot([240 + n1, 360 + n1], [r_val, r_val], c="k")
+        plt.plot([360 + n1, 360 + n1], [0, r_r], c="k")
+        plt.plot([360 + n1, 420 + n1], [r_r, r_r], c="k")
+        plt.plot([420 + n1, 420 + n1], [r_r, 0], c="k")
         n1 = n1 + 180
     else:
-        plt.plot([-540 - n2, -660 - n2], [r_val, r_val], c="g")
-        plt.plot([-660 - n2, -660 - n2], [0, r_r], c="g")
-        plt.plot([-660 - n2, -720 - n2], [r_r, r_r], c="g")
-        plt.plot([-720 - n2, -720 - n2], [r_r, 0], c="g")
+        plt.plot([-540 - n2, -660 - n2], [r_val, r_val], c="k")
+        plt.plot([-660 - n2, -660 - n2], [0, r_r], c="k")
+        plt.plot([-660 - n2, -720 - n2], [r_r, r_r], c="k")
+        plt.plot([-720 - n2, -720 - n2], [r_r, 0], c="k")
         n2 = n2 + 180
 # Слева
 plt.plot([-720 - n2 + 180, -720 - n2 + 180 - 1440], [r_val, r_val], c="k")
