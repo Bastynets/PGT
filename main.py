@@ -1047,9 +1047,10 @@ plt.plot([420 + n1 - 180 + 960 + 480, 420 + n1 - 180 + 960 + 480], [r_r2, 0], c=
 
 plt.plot([-720 - n2 + 180 - 1440 - 480 - 300, 420 + n1 - 180 + 960 + 480 + 300], [0, 0], ':', linewidth='1', c="blue")
 
+plt.title('Рисунок 8. Эскиз проточной части турбины')
 plt.savefig('5.png')
 st.pyplot(fig)
-doc.add_picture('5.png', width=docx.shared.Inches(5), height=docx.shared.Inches(4))
+doc.add_picture('5.png', width=docx.shared.Inches(6), height=docx.shared.Inches(3))
 
 
 
