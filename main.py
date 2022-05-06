@@ -1054,7 +1054,7 @@ plt.plot([-720 - n2 + 180 - 1440 - 480 - 300, 420 + n1 - 180 + 960 + 480 + 300],
 plt.title('Рисунок 8. Эскиз проточной части ЦВД')
 plt.savefig('5.png')
 st.pyplot(fig)
-doc.add_picture('5.png', width=docx.shared.Inches(6.4), height=docx.shared.Inches(3.2))
+doc.add_picture('5.png', width=docx.shared.Inches(6), height=docx.shared.Inches(3))
 
 
 
