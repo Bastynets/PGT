@@ -992,7 +992,11 @@ plt.savefig('17.png')
 st.pyplot(fig)
 doc.add_picture('17.png', width=docx.shared.Inches(6), height=docx.shared.Inches(3))
 
-
+st.write("# Задание 4")
+doc.add_paragraph(" Задание 4")
+st.write("""Создание эскиза проточной части ЦВД""")
+doc.add_paragraph("""Создание эскиза проточной части ЦВД""")
+st.write("""# """)
 
 
 
@@ -1047,7 +1051,7 @@ plt.plot([420 + n1 - 180 + 960 + 480, 420 + n1 - 180 + 960 + 480], [r_r2, 0], c=
 
 plt.plot([-720 - n2 + 180 - 1440 - 480 - 300, 420 + n1 - 180 + 960 + 480 + 300], [0, 0], ':', linewidth='1', c="blue")
 
-plt.title('Рисунок 8. Эскиз проточной части турбины')
+plt.title('Рисунок 8. Эскиз проточной части ЦВД')
 plt.savefig('5.png')
 st.pyplot(fig)
 doc.add_picture('5.png', width=docx.shared.Inches(6), height=docx.shared.Inches(3))
