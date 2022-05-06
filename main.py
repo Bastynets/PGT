@@ -1039,15 +1039,15 @@ for i in range(z - 1):
         plt.plot([-720 - n2, -720 - n2], [r_r, 0], c="g")
         n2 = n2 + 180
 # Слева
-plt.plot([-720 - n2 + 180, -720 - n2 + 180 - 1440], [r_val, r_val], c="g")
-plt.plot([-720 - n2 + 180 - 1440, -720 - n2 + 180 - 1440], [r_val, 0], c="g")
-plt.plot([-720 - n2 + 180 - 1440, -720 - n2 + 180 - 1440 - 480], [r_r2, r_r2], c="g")
-plt.plot([-720 - n2 + 180 - 1440 - 480, -720 - n2 + 180 - 1440 - 480], [r_r2, 0], c="g")
+plt.plot([-720 - n2 + 180, -720 - n2 + 180 - 1440], [r_val, r_val], c="k")
+plt.plot([-720 - n2 + 180 - 1440, -720 - n2 + 180 - 1440], [r_val, 0], c="k")
+plt.plot([-720 - n2 + 180 - 1440, -720 - n2 + 180 - 1440 - 480], [r_r2, r_r2], c="k")
+plt.plot([-720 - n2 + 180 - 1440 - 480, -720 - n2 + 180 - 1440 - 480], [r_r2, 0], c="k")
 # Справа
-plt.plot([420 + n1 - 180, 420 + n1 - 180 + 960], [r_val, r_val], c="g")
-plt.plot([420 + n1 - 180 + 960, 420 + n1 - 180 + 960], [r_val, 0], c="g")
-plt.plot([420 + n1 - 180 + 960, 420 + n1 - 180 + 960 + 480], [r_r2, r_r2], c="g")
-plt.plot([420 + n1 - 180 + 960 + 480, 420 + n1 - 180 + 960 + 480], [r_r2, 0], c="g")
+plt.plot([420 + n1 - 180, 420 + n1 - 180 + 960], [r_val, r_val], c="k")
+plt.plot([420 + n1 - 180 + 960, 420 + n1 - 180 + 960], [r_val, 0], c="k")
+plt.plot([420 + n1 - 180 + 960, 420 + n1 - 180 + 960 + 480], [r_r2, r_r2], c="k")
+plt.plot([420 + n1 - 180 + 960 + 480, 420 + n1 - 180 + 960 + 480], [r_r2, 0], c="k")
 
 plt.plot([-720 - n2 + 180 - 1440 - 480 - 300, 420 + n1 - 180 + 960 + 480 + 300], [0, 0], ':', linewidth='1', c="blue")
 
@@ -1055,14 +1055,6 @@ plt.title('Рисунок 8. Эскиз проточной части ЦВД')
 plt.savefig('5.png')
 st.pyplot(fig)
 doc.add_picture('5.png', width=docx.shared.Inches(6), height=docx.shared.Inches(3))
-
-
-
-
-
-
-
-
 
 
 
@@ -1081,7 +1073,7 @@ doc.save('result.docx')
 
 with open("result.docx", "rb") as file:
     st.download_button(
-        label="Download Result",
+        label="Скачать результат в Word",
         data=file,
         file_name='result.docx',
     )
